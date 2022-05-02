@@ -19,7 +19,7 @@ function getSeason(date) {
   //   typeof date.toISOString() !== "string" &&
   //   typeof date !== "object"
   // ) {
-  //   return "Invalid date!";
+  //   throw new Error("Invalid date!");
   // }
   else if (date.getMonth() >= 2 && date.getMonth() <= 4) {
     return "spring";

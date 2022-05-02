@@ -81,92 +81,128 @@
 
 // renameFiles(["file", "file", "image", "file(1)", "file"]);
 
-class ListNode {
-  constructor(x) {
-    this.value = x;
-    this.next = null;
-  }
-}
-
-function removeKFromList(l, k) {
-  let arr = [];
-  // let obj = {};
-
-  for (let i = 0; i < l.length; i++) {
-    if (l[i] === k) {
-      l.splice(i, 1);
-    }
-    arr.push(l[i]);
-  }
-
-  function insert(n, item) {
-    let temp = new ListNode(item);
-    temp.next = n;
-    return temp;
-  }
-  node = null;
-  for (let i = arr.length - 1; i >= 0; i--) {
-    node = insert(node, arr[i]);
-  }
-  return node;
-
-  // function insert(root, item) {
-  //   let temp = new ListNode();
-  //   temp.value = item;
-  //   temp.next = root;
-  //   root = temp;
-  //   return root;
-  // }
-  // root = null;
-  // for (let i = arr.length - 1; i >= 0; i--) root = insert(root, arr[i]);
-  // return root;
-  // }
-  // let list = arr.reduceRight((rest, val) => ({ val, rest }), null);
-
-  // console.log(arr);
-  // let node;
-  // let obj = {};
-  // let node = new ListNode(arr[0]);
-
-  // for (let i = 1; i < arr.length - 1; i++) {
-  //   let node2 = new ListNode(arr[i]);
-  //   node.next = node2;
-  //   node2.next = new ListNode(arr[i + 1]);
-  // }
-  // console.log(node);
-}
-console.log(removeKFromList([3, 1, 2, 3, 4, 5], 3));
-
-// function convertArrayToList(arr) {
-//   return arr.reverse().reduce((acc, cur) => {
-//     if (acc) {
-//       const node = new ListNode(cur);
-//       node.next = acc;
-//       return node;
-//     }
-
-//     return new ListNode(cur);
-//   }, null);
-// }
-
-// console.log(convertArrayToList([3, 1, 2, 3, 4, 5]));
-function arrayToList(array) {
-  let list = null;
-  // let node;
-  for (let i = array.length - 1; i >= 0; i--) {
-    list = { value: array[i], next: list };
-
-    // list = new ListNode(array[i]);
-    // list.next = list;
-    // list.next = new ListNode(array[i + 1]);
-  }
-  // return node;
-  return list;
-}
-console.log(arrayToList([3, 1, 2, 3, 4, 5]));
 // class ListNode {
 //   constructor(x) {
 //     this.value = x;
 //     this.next = null;
 //   }
 // }
+
+// function removeKFromList(l, k) {
+//   let arr = [];
+//   // let obj = {};
+
+//   for (let i = 0; i < l.length; i++) {
+//     if (l[i] === k) {
+//       l.splice(i, 1);
+//     }
+//     arr.push(l[i]);
+//   }
+
+//   function insert(n, item) {
+//     let temp = new ListNode(item);
+//     temp.next = n;
+//     return temp;
+//   }
+//   node = null;
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     node = insert(node, arr[i]);
+//   }
+//   return node;
+
+//   // function insert(root, item) {
+//   //   let temp = new ListNode();
+//   //   temp.value = item;
+//   //   temp.next = root;
+//   //   root = temp;
+//   //   return root;
+//   // }
+//   // root = null;
+//   // for (let i = arr.length - 1; i >= 0; i--) root = insert(root, arr[i]);
+//   // return root;
+//   // }
+//   // let list = arr.reduceRight((rest, val) => ({ val, rest }), null);
+
+//   // console.log(arr);
+//   // let node;
+//   // let obj = {};
+//   // let node = new ListNode(arr[0]);
+
+//   // for (let i = 1; i < arr.length - 1; i++) {
+//   //   let node2 = new ListNode(arr[i]);
+//   //   node.next = node2;
+//   //   node2.next = new ListNode(arr[i + 1]);
+//   // }
+//   // console.log(node);
+// }
+// console.log(removeKFromList([3, 1, 2, 3, 4, 5], 3));
+
+// // function convertArrayToList(arr) {
+// //   return arr.reverse().reduce((acc, cur) => {
+// //     if (acc) {
+// //       const node = new ListNode(cur);
+// //       node.next = acc;
+// //       return node;
+// //     }
+
+// //     return new ListNode(cur);
+// //   }, null);
+// // }
+
+// // console.log(convertArrayToList([3, 1, 2, 3, 4, 5]));
+// function arrayToList(array) {
+//   let list = null;
+//   // let node;
+//   for (let i = array.length - 1; i >= 0; i--) {
+//     list = { value: array[i], next: list };
+
+//     // list = new ListNode(array[i]);
+//     // list.next = list;
+//     // list.next = new ListNode(array[i + 1]);
+//   }
+//   // return node;
+//   return list;
+// }
+// console.log(arrayToList([3, 1, 2, 3, 4, 5]));
+// // class ListNode {
+// //   constructor(x) {
+// //     this.value = x;
+// //     this.next = null;
+// //   }
+// // }
+
+// * For s1 = "aabcc" and s2 = "adcaa", the output should be 3
+// * Strings have 3 common characters - 2 "a"s and 1 "c".
+// */
+// function getCommonCharacterCount(s1, s2) {
+//   s1 = s1.split("");
+//   s2 = s2.split("");
+//   let counter = 0;
+//   for (let i = 0; i < s1.length; i++) {
+//     // if (s2.includes(s1[i])) {
+//     console.log(s1, s2);
+
+//     let s2Index = s2.findIndex((el) => el === s1[i]);
+//     // console.log(s2Index);
+//     s2.splice(s2Index, 1);
+//     // s1.splice(i - 1, 1);
+//     s1.splice(i, 1);
+//     counter++;
+//     // }
+
+//     // let common = s2.find((el) => el === s1[i]);
+//   }
+//   console.log(counter);
+//   //  throw new NotImplementedError('Not implemented');
+//   // remove line with error and write your code here
+// }
+// getCommonCharacterCount("zzzz", "zzzzzzz");
+function deleteDigit(n) {
+  n = n.toString().split("");
+  let max = Math.max(...n);
+  let maxIndex = n.findIndex((el) => +el === max);
+  console.log(maxIndex);
+  // throw new NotImplementedError('Not implemented');
+  // remove line with error and write your code here
+}
+deleteDigit(152);
